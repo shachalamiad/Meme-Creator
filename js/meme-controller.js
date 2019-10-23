@@ -12,12 +12,19 @@ function init() {
     renderMeme()
 }
 
-function onSubmitForm() {
-    event.preventDefault();
-    var elSelectedTxt = document.querySelector(".text").value;
-    var selectedTxt = elSelectedTxt;
-    gSelectedTxt = selectedTxt;
-    drawTxt(gSelectedTxt);
+function onAddTxt() {
+    var selectedTxt = document.querySelector(".text").value;
+    var newTxt = {
+        line: selectedTxt,
+        y: gCanvas.height / 2,
+        size: 24,
+        align: 'left',
+        color: 'white'
+    };
+    gMeme.txts.push(newTxt);
+    gMeme.selectedTxtIdx = gMeme.txts.length - 1
+
+    renderMeme()
 }
 
 function renderMeme() {
@@ -37,12 +44,17 @@ function renderMeme() {
 
 
 function onDeleteLine() {
-    gMeme.txts.splice(1, 1);
-
+    if (gMeme.txts.length === 1) {
+        return
+    };
+    gMeme.txts.splice(gMeme.selectedTxtIdx, 1);
+    if (gMeme.selectedTxtIdx >= gMeme.txts.length) {
+        gMeme.selectedTxtIdx = gMeme.txts.length - 1
+    }
     renderMeme();
 }
 
-function onMoveRect(startX, startY) {
+function onSwitchTxt() {
     gMeme.selectedTxtIdx = (gMeme.selectedTxtIdx + 1) % gMeme.txts.length
     renderMeme()
 }
@@ -68,6 +80,6 @@ function onMoveUpTxt() {
 
 function onMoveDownTxt() {
     gMeme.txts[gMeme.selectedTxtIdx].y += 10;
-    
+
     renderMeme();
 }
