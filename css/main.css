@@ -17,7 +17,17 @@
     background-color: linen;
 }
 
-img {
+.canvas-image {
     display: none;
     /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+}
+
+.galery {
+    background-color: cornflowerblue;
+    height: 20em;
+}
+
+.img {
+    width: 150px;
+    height: 150px;
 }

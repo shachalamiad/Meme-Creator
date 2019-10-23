@@ -9,26 +9,19 @@
     <link rel="stylesheet" href="./css/main.css">
 </head>
 
-<body onload="init()"> Galery
+<body onload="initGalery()"> Galery
 
-    <nav>
-        <div> Galery</div>
-        <div> Contact us</div>
-    <!-- </nav>
-       <img src="./imgs/004.jpg" class="1" name="sarcastic" />
-      <img src="./imgs/img11.jpg" class="2" name="sarcastic" /> -->
-<section class="image-container">
-           
-          
-</section>
+    <section class="galery"> Galery
+    <img src="imgs/004.jpg" class="img" alt="img" name="funny" onmousedown="onImageSelect(this)">
+    <img src="imgs/img11.jpg" class="img" alt="img" name="smarty">
+    </section>
+
 <button><a href="./main.html">Back to Meme Creator</a></button>
 
-
-
 <script src="js/util-service.js"></script>
-<!-- <script src="js/meme-service.js"></script> -->
+<script src="js/meme-service.js"></script>
 <script src="js/galery-service.js"></script>
-<!-- <script src="js/meme-controller.js"></script> -->
+<script src="js/meme-controller.js"></script>
 <script src="js/galery-controller.js"></script>
 </body>
 

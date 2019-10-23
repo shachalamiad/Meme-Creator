@@ -1,11 +1,11 @@
 'use strict'
 
-function init(){
+function initGalery(){
     renderGalery();
 }
 
 function renderGalery() {
-    // var image = document.querySelector(".1")
-    // console.log(image);
+    // var image = document.querySelector('.test');
+    // console.log(image)
 }
 

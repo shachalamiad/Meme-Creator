@@ -10,6 +10,12 @@ function init() {
     gCtx = gCanvas.getContext('2d');
 }
 
+function onImageSelect(e) {
+    var elImgName = e.name;
+    var imgName = elImgName
+    console.log(imgName)
+}
+
 function onSubmitForm() {
     event.preventDefault();
     var elSelectedTxt = document.querySelector(".name").value;
