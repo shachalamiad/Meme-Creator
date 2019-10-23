@@ -23,8 +23,8 @@ function renderMeme() {
 
 
 function drawTxtBorder(startX, startY) {
-    gCtx.strokeStyle = 'yellow'
-    gCtx.strokeRect(startX - 2, startY + 2, 300 + 2, -30 - 2)
+    gCtx.strokeStyle = 'yellow';
+    gCtx.strokeRect(startX - 2, startY + 2, 300 + 2, -30 - 2);
 }
 
 function drawTxt(txt, y, size, color) {
@@ -77,3 +77,16 @@ function onMoveDownTxt() {
     gMeme.txts[gMeme.selectedTxtIdx].y += 10;
     renderMeme();
 }
+
+function onIncreaseTxtSize() {
+    gMeme.txts[gMeme.selectedTxtIdx].size += 5;
+    renderMeme();
+}
+
+function onDecreaseTxtSize() {
+    if (gMeme.txts[gMeme.selectedTxtIdx].size <15) {
+        gMeme.txts[gMeme.selectedTxtIdx].size =14;
+        return};
+        gMeme.txts[gMeme.selectedTxtIdx].size -= 5;
+        renderMeme();
+    }
