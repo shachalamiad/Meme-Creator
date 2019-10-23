@@ -53,17 +53,11 @@ function createMeme(selectedImgId, line, size, align, color) {
     return userMeme;
 }
 
-// selectedImgId: 5,
-//  selectedTxtIdx: 0,
-//  txts: [
-//  {
-//  line: 'I never eat Falafel',
-//  size: 20,
-//  align: 'left',
-//  color: 'red'
-//  }
-
-
+function getImage(e) {
+    var gCurrImage = e;
+    console.log(gCurrImage)
+    return gCurrImage;
+}
 
 function getUserMemes() {
     var userMemes = loadMemesFromStorage();

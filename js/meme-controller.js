@@ -4,31 +4,30 @@ console.log('CANVAS!')
 var gCanvas;
 var gCtx;
 var gTxtWidth = 40;
+var gSelectedTxt;
 
 function init() {
     gCanvas = document.querySelector('#my-canvas');
     gCtx = gCanvas.getContext('2d');
-}
-
-function onImageSelect(e) {
-    var elImgName = e.name;
-    var imgName = elImgName
-    console.log(imgName)
+    renderMeme()
 }
 
 function onSubmitForm() {
     event.preventDefault();
-    var elSelectedTxt = document.querySelector(".name").value;
+    var elSelectedTxt = document.querySelector(".text").value;
     var selectedTxt = elSelectedTxt;
-    renderMeme(selectedTxt);
+    gSelectedTxt = selectedTxt;
+    drawTxt(gSelectedTxt);
 }
 
-function renderMeme(selectedTxt) {
-var elselectedImg = document.querySelector('img');
-var selectedImgId = elselectedImg;
-gCtx.drawImage(selectedImgId, 0, 0);
-drawTxt(selectedTxt);
-createMeme(selectedImgId, selectedTxt);
+function renderMeme() {
+    // console.log(e)
+    var elselectedImg = document.querySelector('.canvas-image');
+    var selectedImgId = elselectedImg;
+    console.log(elselectedImg)
+    gCtx.drawImage(selectedImgId, 0, 0);
+    // drawTxt(gSelectedTxt);
+    createMeme(selectedImgId, gSelectedTxt);
 }
 
 function drawTxt(txt) {
