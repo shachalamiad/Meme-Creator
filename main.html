@@ -10,6 +10,12 @@
 </head>
 
 <body onload="init()">Meme Creator
+    <button class="delete-txt" onclick="onDeleteLine()">Delete Line</button>
+    <button class="draw-rect" onclick="onSwitchTxt()">⇆</button>
+
+    <button class="move-up-txt" onclick="onMoveUpTxt()">↑</button>
+    <button class="move-down-txt" onclick="onMoveDownTxt()">↓</button>
+
         <button><a href="./index.html">Back to Galery</a></button>
         <section>
                 <form id="frmRegister" onsubmit="onSubmitForm()">
@@ -28,6 +34,7 @@
         </canvas>
     </div>
     <img src="imgs/8.jpg" id="1" class="canvas-image" />
+   
 
 
     <script src="js/util-service.js"></script>

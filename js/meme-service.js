@@ -10,16 +10,32 @@ var gMemes;
 var gMeme = {
     selectedImgId: 5,
     selectedTxtIdx: 0,
-    txts:
-    {
-        line: 'I never eat Falafel',
-        size: 20,
-        align: 'left',
-        color: 'red'
-    }
+    txts: [
+        {
+            line: 'I never eat Falafel',
+            y: 50,
+            size: 20,
+            align: 'left',
+            color: 'white'
+        },
+        {
+            line: 'pop',
+            y: 100,
+            size: 30,
+            align: 'left',
+            color: '#ccccff'
+        },
+        {
+            line: 'kuku',
+            y: 200,
+            size: 15,
+            align: 'left',
+            color: '#ffcccc'
+        }
+    ]
 }
 
-function createImage () {
+function createImage() {
 
 }
 
@@ -48,16 +64,16 @@ function createMeme(selectedImgId, line, size, align, color) {
         ]
 
     }
-    gMeme = userMeme;
+    // gMeme = userMeme;
     // saveMemesToStorage(gMemes);
     return userMeme;
 }
 
-function getImage(e) {
-    var gCurrImage = e;
-    console.log(gCurrImage)
-    return gCurrImage;
-}
+// function getImage(e) {
+//     var gCurrImage = e;
+//     console.log(gCurrImage)
+//     return gCurrImage;
+// }
 
 function getUserMemes() {
     var userMemes = loadMemesFromStorage();
