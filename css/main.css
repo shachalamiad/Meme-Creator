@@ -1,0 +1,23 @@
+
+* {
+    box-sizing: border-box;
+}
+
+
+.canvas-container{
+    height: fit-content;
+    width: fit-content;
+    margin: auto;
+}
+
+
+#my-canvas {
+    margin: 20px;
+    border: 1px solid blue;
+    background-color: linen;
+}
+
+img {
+    display: none;
+    /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+}
