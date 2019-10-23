@@ -11,7 +11,6 @@ function onImageSelect(e) {
     var imgName = elImgName;
     // var currImage = e;
     // gCurrImage = currImage;
-    // getImage(e);
     renderMeme(e);
     // window.location = "./main.html"
 }
