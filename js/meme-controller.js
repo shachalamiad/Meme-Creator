@@ -8,18 +8,25 @@ var gTxtWidth = 40;
 function init() {
     gCanvas = document.querySelector('#my-canvas');
     gCtx = gCanvas.getContext('2d');
-    renderImage();
-    drawTxt();
 }
 
-function renderImage() {
-// var img = getImage();
-var img = document.querySelector('img');
-console.log(img)
-gCtx.drawImage(img, 0, 0);
+function onSubmitForm() {
+    event.preventDefault();
+    var elSelectedTxt = document.querySelector(".name").value;
+    var selectedTxt = elSelectedTxt;
+    renderMeme(selectedTxt)
 }
 
-function drawTxt() {
+function renderMeme(txt) {
+var elselectedImg = document.querySelector('img');
+var selectedImgId = elselectedImg;
+gCtx.drawImage(selectedImgId, 0, 0);
+drawTxt(txt)
+}
+
+function drawTxt(txt) {
+    // var txt = gMeme.txts.line
+    console.log(txt)
     gCtx.font = "30px Impact";
-    gCtx.fillText("Hello World", 10, 50);
+    gCtx.fillText(txt, 10, 50);
 }

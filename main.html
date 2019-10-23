@@ -10,15 +10,26 @@
 </head>
 
 <body onload="init()">Meme Creator
-    
-    
-    <div class="canvas-container"> 
-        <div><a href="./user-prefs.html" data-trans="userform"></a></div>
+        <section>
+                <form id="frmRegister" onsubmit="onSubmitForm()">
+                    <table>
+                        <tr>
+                            <td><label for="text">Meme-text:</label></td>
+                            <td><input type="text" id="text" class="name" name="text" placeholder="Please enter your meme"/></td>
+                    </table>
+                    <td><input type="submit" value="submit" /></td>
+                </form>
+            </section>
+
+    <div class="canvas-container">
         <canvas id="my-canvas" width="500" height="500">
-        Update your browser to enjoy canvas!
+            Update your browser to enjoy canvas!
         </canvas>
     </div>
-    <img src="imgs/8.jpg"/></div>
+    <img src="imgs/8.jpg" id="1" class="sarcastic" />
+
+
+
 
 
     <script src="js/util-service.js"></script>
