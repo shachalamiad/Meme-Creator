@@ -18,11 +18,11 @@ var gTrans = {
     add: {
         en: 'Add',
         he: 'הוסף'
+    },
+    UpdateText: {
+        en: 'Update Text',
+        he: 'עדכן טקסט'
     }
-    // select_img: {
-    //     en: 'Please select an image',
-    //     he: 'אנא בחר תמונה'
-    // }
 }
 
 function doTrans() {
@@ -38,7 +38,6 @@ function doTrans() {
 function getTrans(transKey) {
     var keyTrans = gTrans[transKey];
     if (!keyTrans) return 'UNKNOWN';
-
     var txt = keyTrans[gCurrLang];
     if (!txt) txt = keyTrans['en'];
 

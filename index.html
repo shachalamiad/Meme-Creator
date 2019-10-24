@@ -26,7 +26,7 @@
                         <option value="en">English</option>
                         <option value="he">עברית</option>
                     </select>
-                </div> 
+                </div>
                 </div>
             </nav>
         </header>
@@ -39,11 +39,11 @@
             </div>
 
             <section class="functions-container">
-
                 <div class="text-line">
                     <table>
-                            <td class="update-btn"><button class="update-txt-btn" onclick="onUpdateTxt()">Update Text</button></td>
-                            <td class="add-btn"><button onclick="onAddLine()" data-trans="add">Add</button></td>
+                        <td class="update-btn"><button class="update-txt-btn" onclick="onUpdateTxt()"
+                                data-trans="update">Update Text</button></td>
+                        <td class="add-btn"><button onclick="onAddLine()" data-trans="add">Add</button></td>
                         <tr>
 
                             <td><label for="text"></label></td>
@@ -61,30 +61,16 @@
                     <button class="draw-rect-btn" onclick="onSwitchTxt()">⇆</button>
                     <button class="move-up-txt" onclick="onMoveUpTxt()">↑</button>
                     <button class="move-down-txt" onclick="onMoveDownTxt()">↓</button>
-                    
-                    <!-- <input class="file-input btn" type="file" name="image" onchange="onImgInput(event)" /> -->
-                    <!-- 
-                    <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
-                        <input name="img" id="imgData" type="hidden" />
-                        <button class="btn" type="submit">Publish</button>
-                        <a href="#" class="btn" onclick="downloadImg(this)" download="my-img.jpg">Download as jpeg</a>
-                        <div class="share-container"></div>
-                    </form> -->
-
                 </div>
             </section>
-
         </section>
-
     </main>
 
-    <footer class="image-gallery" >
+    <footer class="image-gallery">
         Please select an image
         <section class="galery">
         </section>
     </footer>
-
-    <img src="imgs/8.jpg" id="1" class="canvas-image" />
 
     <script src="js/util-service.js"></script>
     <script src="js/meme-service.js"></script>
@@ -95,3 +81,20 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+<!-- <input class="file-input btn" type="file" name="image" onchange="onImgInput(event)" /> -->
+<!-- 
+                    <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
+                        <input name="img" id="imgData" type="hidden" />
+                        <button class="btn" type="submit">Publish</button>
+                        <a href="#" class="btn" onclick="downloadImg(this)" download="my-img.jpg">Download as jpeg</a>
+                        <div class="share-container"></div>
+                    </form> -->

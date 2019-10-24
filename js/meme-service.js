@@ -20,7 +20,6 @@ var gMeme = {
 saveMemeToStorage()
 
 function addLine(selectedTxt, gTxtChange) {
-
     if (gMeme.selectedTxtIdx !== 3) {
     var newTxt = {
         line: selectedTxt,
@@ -67,7 +66,6 @@ function loadImgsFromStorage() {
 }
 
 
-
 function saveMemeToStorage() {
     saveToStorage(User_DATA_KEY, gMeme)
 }
@@ -75,24 +73,3 @@ function saveMemeToStorage() {
 function loadMemeFromStorage() {
     return loadFromStorage(User_DATA_KEY);
 }
-
-
-
-
-// function createMeme(selectedImgId,selectedTxtIdx,line, y, size) {
-    //     var meme = {
-//     selectedImgId: selectedImgId,
-//     selectedTxtIdx: selectedTxtIdx,
-//     txts: [
-//         {
-//             line: line,
-//             y: y,
-//             size: size,
-//             align: 'left',
-//             color: 'red'
-//         }
-//     ]
-//     }
-//     return meme;
-// }
-

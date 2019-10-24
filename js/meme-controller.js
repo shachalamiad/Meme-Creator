@@ -29,10 +29,9 @@ function onImageSelect(e) {
     gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
     gImg = e;
     document.querySelector('.meme-editor').style.display = 'flex';
-    // clearLines();
     gCtx.drawImage(gImg, 0, 0);
     if (gMeme.selectedTxtIdx >= 1) {
-    gMeme.txts.splice(gMeme.selectedTxtIdx, gMeme.selectedTxtIdx-1);
+        gMeme.txts.splice(gMeme.selectedTxtIdx, gMeme.selectedTxtIdx - 1);
     }
 }
 
@@ -46,13 +45,12 @@ function renderMeme() {
 }
 
 function onCanvasClicked(ev) {
-
     var clickedTxt = gMeme.txts.find(txt => {
         return (
             ev.clientX > 10 - gBoxMargin &&
             ev.clientX < gBoxWidth + 10 - gBoxMargin &&
-            ev.clientY > (gMeme.selectedTxtIdx*110 + 50) + gBoxMargin &&
-            ev.clientY <  (gMeme.selectedTxtIdx*110 + 50) + gBoxHeight - gBoxMargin
+            ev.clientY > (gMeme.selectedTxtIdx * 110 + 50) + gBoxMargin &&
+            ev.clientY < (gMeme.selectedTxtIdx * 110 + 50) + gBoxHeight - gBoxMargin
         )
     })
     if (clickedTxt) {
@@ -60,13 +58,13 @@ function onCanvasClicked(ev) {
         document.querySelector(".input-text").value = gMeme.txts[gMeme.selectedTxtIdx].line;
         document.querySelector('.update-txt-btn').style.display = 'flex';
         document.querySelector('.add-btn').style.display = 'none';
-        
+
     }
 
 }
 
 function onUpdateTxt() {
-    var elUpdatedTxt = document.querySelector(".input-text").value 
+    var elUpdatedTxt = document.querySelector(".input-text").value
     gMeme.txts[gMeme.selectedTxtIdx].line = elUpdatedTxt;
     renderMeme();
     document.querySelector('.update-txt-btn').style.display = 'none';
@@ -76,7 +74,7 @@ function onUpdateTxt() {
 
 function drawTxtBorder(startX, startY) {
     gCtx.strokeStyle = 'yellow';
-    gCtx.strokeRect(startX-gBoxMargin, startY + gBoxMargin, gBoxWidth - gBoxMargin, -gBoxHeight + gBoxMargin);
+    gCtx.strokeRect(startX - gBoxMargin, startY + gBoxMargin, gBoxWidth - gBoxMargin, -gBoxHeight + gBoxMargin);
 }
 
 function drawTxt(txt, y, size, color) {
@@ -86,7 +84,6 @@ function drawTxt(txt, y, size, color) {
     gCtx.fillText(txt, 10, y);
     gCtx.strokeText(txt, 10, y);
 }
-
 
 function onAddLine() {
     var selectedTxt = document.querySelector(".input-text").value;
@@ -157,7 +154,7 @@ function onSetLang(lang) {
 
 
 
-
+//To be implemented
 //Download Image
 function downloadImg(elLink) {
     var imgContent = gCanvas.toDataURL('image/jpeg');
