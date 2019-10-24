@@ -12,22 +12,22 @@ var gMeme = {
     txts: [
         {
             line: 'I never eat Falafel',
-            y: 50,
-            size: 20,
+            y: 70,
+            size: 30,
             align: 'left',
             color: 'white'
         },
         {
-            line: 'pop',
-            y: 100,
+            line: 'My bus did not stop',
+            y: 270,
             size: 30,
             align: 'left',
             color: '#ccccff'
         },
         {
-            line: 'kuku',
-            y: 200,
-            size: 15,
+            line: 'Lets hurry up',
+            y: 470,
+            size: 30,
             align: 'left',
             color: '#ffcccc'
         }

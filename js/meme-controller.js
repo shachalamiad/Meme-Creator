@@ -23,6 +23,7 @@ function renderImgs() {
 
 function onImageSelect(e) {
    gImg = e;
+   document.querySelector('.meme-editor').style.display = 'flex';
    renderMeme();
 }
 
@@ -48,7 +49,6 @@ function drawTxt(txt, y, size, color) {
     gCtx.fillText(txt, 10, y);
     gCtx.strokeText(txt, 10, y);
 }
-
 
 
 function onAddTxt() {
