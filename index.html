@@ -43,20 +43,32 @@
                 <div class="text-line">
                     <table>
                         <tr>
+                            <td class="add-btn"><button onclick="onAddLine()">Add</button></td>
                             <td><label for="text"></label></td>
                             <td><input type="text" class="input-text" id="text" class="text" name="text"
-                                onfocus="this.value=''" placeholder="Lorem ipsum dolor" /></td>
+                                    onfocus="this.value=''" placeholder="Lorem ipsum dolor" /></td>
                     </table>
-                    <td><button onclick="onAddLine()">Add</button></td>
                 </div>
 
                 <div class="btns-container">
-                    <button class="delete-txt" onclick="onDeleteTxt()">🗑</button>
-                    <button class="draw-rect" onclick="onSwitchTxt()">⇆</button>
-                    <button class="increase-txt" onclick="onIncreaseTxtSize()">🗚</button>
-                    <button class="increase-txt" onclick="onDecreaseTxtSize()">🗛</button>
+                    <button class="delete-txt" onclick="onDeleteTxt()"><img src="imgs/trash.png"></button>
+                    <button class="increase-txt" onclick="onIncreaseTxtSize()"><img
+                            src="imgs/increase font - icon.png"></button>
+                    <button class="increase-txt" onclick="onDecreaseTxtSize()"><img
+                            src="imgs/decrease font - icon.png"></button>
+                    <button class="draw-rect-btn" onclick="onSwitchTxt()">⇆</button>
                     <button class="move-up-txt" onclick="onMoveUpTxt()">↑</button>
                     <button class="move-down-txt" onclick="onMoveDownTxt()">↓</button>
+
+                    <!-- <input class="file-input btn" type="file" name="image" onchange="onImgInput(event)" /> -->
+<!-- 
+                    <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
+                        <input name="img" id="imgData" type="hidden" />
+                        <button class="btn" type="submit">Publish</button>
+                        <a href="#" class="btn" onclick="downloadImg(this)" download="my-img.jpg">Download as jpeg</a>
+                        <div class="share-container"></div>
+                    </form> -->
+
                 </div>
             </section>
 
