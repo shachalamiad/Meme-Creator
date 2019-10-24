@@ -22,12 +22,20 @@ function renderImgs() {
 }
 
 function onImageSelect(e) {
+    gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
    gImg = e;
    document.querySelector('.meme-editor').style.display = 'flex';
+   clearLines();
+   gCtx.drawImage(gImg, 0, 0);
+//    console.log(gMeme.selectedTxtIdx);
+//    if (gMeme.selectedTxtIdx !== 0) {
+//     gMeme.selectedTxtIdx === 0
+//    }
    renderMeme();
 }
 
 function renderMeme() {
+    
     gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
     gCtx.drawImage(gImg, 0, 0);
     for (let txt of gMeme.txts) {
@@ -55,6 +63,7 @@ function onAddLine() {
     var selectedTxt = document.querySelector(".input-text").value;
     addLine(selectedTxt);
     renderMeme();
+    document.querySelector(".input-text").value = ''
 }
 
 function onDeleteTxt() {

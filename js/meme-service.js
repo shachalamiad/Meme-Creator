@@ -30,13 +30,24 @@ function addLine(selectedTxt) {
     };
     gMeme.txts.push(newTxt);
     gMeme.selectedTxtIdx = gMeme.txts.length - 1;
-    console.log(gMeme)
     return newTxt;
 }
     if (gMeme.selectedTxtIdx === 3) {
         return
     }
 }
+
+
+function clearLines(){
+    console.log('hi');
+    console.log(gMeme.txts);
+    if (gMeme.txts.length !== 0) {
+        gMeme.SelectedTxtIdx = 0;
+    }
+    console.log('hi');
+    console.log(gMeme.txts);
+}
+
 
 function getUserMemes() {
     var userMemes = loadMemesFromStorage();

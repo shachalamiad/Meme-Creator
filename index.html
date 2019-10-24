@@ -5,24 +5,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ultimate Meme Creator</title>
+    <title>Document</title>
     <link rel="stylesheet" href="./css/main.css">
-</head>
+</head class="Meme-Editor">
 
-<body"> Galery
 
-    <!-- <section class="galery"> Galery
-    <img src="imgs/004.jpg" class="img" id="1" alt="img" name="funny" onmousedown="onImageSelect(this)">
-    <img src="imgs/img11.jpg" class="img" id=2" alt="img" name="smarty onmousedown="onImageSelect(this)">
-    </section> -->
+<body onload="init()">
+    <main>
 
-<button><a href="./main.html">Back to Meme Creator</a></button>
+        <header>
+            <nav class="nav-bar-container">
+                <div class="logo">Meme Creator</div>
+                <ul class="nav-bar-links">
+                    <li class="link gallery"><a href="">Gallery</a></li>
+                    <li class="link">Memes</li>
+                    <li class="link">About</li>
+                </ul>
+                <!-- <div class="lang-selector">
+                <select class="lang-dropdown" onchange="onSetLang(this.value)">
+                    <option value="en">English</option>
+                    <option value="he">עברית</option>
+                </select>
+            </div> -->
+                <!-- </div> -->
+            </nav>
+        </header>
 
-<script src="js/util-service.js"></script>
-<script src="js/meme-service.js"></script>
-<script src="js/galery-service.js"></script>
-<script src="js/meme-controller.js"></script>
-<script src="js/galery-controller.js"></script>
+        <section class="meme-editor">
+            <div class="canvas-container">
+                <canvas id="my-canvas" width="500" height="500">
+                    Update your browser to enjoy canvas!
+                </canvas>
+            </div>
+
+            <section class="functions-container">
+
+                <div class="text-line">
+                    <table>
+                        <tr>
+                            <td><label for="text"></label></td>
+                            <td><input type="text" class="input-text" id="text" class="text" name="text"
+                                onfocus="this.value=''" placeholder="Lorem ipsum dolor" /></td>
+                    </table>
+                    <td><button onclick="onAddLine()">Add</button></td>
+                </div>
+
+                <div class="btns-container">
+                    <button class="delete-txt" onclick="onDeleteTxt()">🗑</button>
+                    <button class="draw-rect" onclick="onSwitchTxt()">⇆</button>
+                    <button class="increase-txt" onclick="onIncreaseTxtSize()">🗚</button>
+                    <button class="increase-txt" onclick="onDecreaseTxtSize()">🗛</button>
+                    <button class="move-up-txt" onclick="onMoveUpTxt()">↑</button>
+                    <button class="move-down-txt" onclick="onMoveDownTxt()">↓</button>
+                </div>
+            </section>
+
+        </section>
+
+    </main>
+
+    <footer class="image-gallery">
+        <!-- <span class="image-gallery-span"> -->
+        Please select an image
+        <!-- </span> -->
+        <section class="galery">
+        </section>
+    </footer>
+
+    <img src="imgs/8.jpg" id="1" class="canvas-image" />
+
+    <script src="js/util-service.js"></script>
+    <script src="js/meme-service.js"></script>
+    <script src="js/galery-service.js"></script>
+    <script src="js/meme-controller.js"></script>
+    <script src="js/galery-controller.js"></script>
 </body>
 
 </html>
