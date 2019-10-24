@@ -2,22 +2,36 @@
 
 var gCanvas;
 var gCtx;
+var gImg;
 
 function init() {
     gCanvas = document.querySelector('#my-canvas');
     gCtx = gCanvas.getContext('2d');
-    renderMeme()
+    renderImgs();
+}
+
+function renderImgs() {
+    var imgs = getImgs();
+    var strHTMLs = imgs.map(function (image, idx) {
+        return `
+        <img src="${image.url}" class="img" id="${idx}"
+         alt="img" name="${image.keywords}" onmousedown="onImageSelect(this)">
+         `
+    })
+    document.querySelector('.galery').innerHTML = strHTMLs.join('');
+}
+
+function onImageSelect(e) {
+   gImg = e;
+   renderMeme();
 }
 
 function renderMeme() {
-    var elselectedImg = document.querySelector('.canvas-image');
-    var selectedImgId = elselectedImg;
     gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
-    gCtx.drawImage(selectedImgId, 0, 0);
+    gCtx.drawImage(gImg, 0, 0);
     for (let txt of gMeme.txts) {
         drawTxt(txt.line, txt.y, txt.size, txt.color)
     }
-
     drawTxtBorder(10, gMeme.txts[gMeme.selectedTxtIdx].y)
 }
 
@@ -84,9 +98,11 @@ function onIncreaseTxtSize() {
 }
 
 function onDecreaseTxtSize() {
-    if (gMeme.txts[gMeme.selectedTxtIdx].size <15) {
-        gMeme.txts[gMeme.selectedTxtIdx].size =14;
-        return};
-        gMeme.txts[gMeme.selectedTxtIdx].size -= 5;
-        renderMeme();
-    }
+    if (gMeme.txts[gMeme.selectedTxtIdx].size < 15) {
+        gMeme.txts[gMeme.selectedTxtIdx].size = 14;
+        return
+    };
+    gMeme.txts[gMeme.selectedTxtIdx].size -= 5;
+    renderMeme();
+}
+

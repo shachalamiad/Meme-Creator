@@ -5,7 +5,6 @@ var gNextId = 1;
 var gCurrMeme;
 var gKeywords = { 'happy': 12, 'funny puk': 1 }
 
-var gMemes;
 
 var gMeme = {
     selectedImgId: 5,
@@ -33,10 +32,6 @@ var gMeme = {
             color: '#ffcccc'
         }
     ]
-}
-
-function createImage() {
-
 }
 
 
@@ -69,11 +64,6 @@ function createMeme(selectedImgId, line, size, align, color) {
     return userMeme;
 }
 
-// function getImage(e) {
-//     var gCurrImage = e;
-//     console.log(gCurrImage)
-//     return gCurrImage;
-// }
 
 function getUserMemes() {
     var userMemes = loadMemesFromStorage();
@@ -87,4 +77,15 @@ function saveMemesToStorage() {
 
 function loadMemesFromStorage() {
     return loadFromStorage(User_DATA_KEY);
+}
+
+
+function getImgs() {
+    var imgs = loadImgsFromStorage();
+    return imgs;
+}
+
+
+function loadImgsFromStorage() {
+    return loadFromStorage(User_DATA_KEY_IMGS);
 }

@@ -19,12 +19,16 @@
 
 .canvas-image {
     display: none;
-    /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
 }
 
 .galery {
-    background-color: cornflowerblue;
-    height: 20em;
+    background-color: lemonchiffon;
+    height: fit-content;
+    width:fit-content;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .img {
