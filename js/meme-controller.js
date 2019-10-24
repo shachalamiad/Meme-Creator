@@ -51,18 +51,10 @@ function drawTxt(txt, y, size, color) {
 }
 
 
-function onAddTxt() {
+function onAddLine() {
     var selectedTxt = document.querySelector(".input-text").value;
-    var newTxt = {
-        line: selectedTxt,
-        y: gCanvas.height / 2,
-        size: 24,
-        align: 'left',
-        color: 'white'
-    };
-    gMeme.txts.push(newTxt);
-    gMeme.selectedTxtIdx = gMeme.txts.length - 1
-    renderMeme()
+    addLine(selectedTxt);
+    renderMeme();
 }
 
 function onDeleteTxt() {
