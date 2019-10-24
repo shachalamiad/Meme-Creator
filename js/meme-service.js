@@ -3,15 +3,13 @@
 const User_DATA_KEY = 'userMeme';
 var gNextId = 1;
 var gKeywords = { 'happy': 12, 'funny puk': 1 }
-
-
 var gMeme = {
     selectedImgId: 5,
     selectedTxtIdx: 0,
     txts: [
         {
-            line: null,
-            y: -130,
+            line: 'I never eat Falafel',
+            y: 0,
             size: 0,
             align: 'left',
             color: 'red'
@@ -19,17 +17,21 @@ var gMeme = {
     ]
 }
 
-function addLine(selectedTxt) {
+saveMemeToStorage()
+
+function addLine(selectedTxt, gTxtChange) {
+
     if (gMeme.selectedTxtIdx !== 3) {
     var newTxt = {
         line: selectedTxt,
-        y: gMeme.txts[gMeme.selectedTxtIdx].y + 170,
+        y: gMeme.txts[gMeme.selectedTxtIdx].y + (gMeme.selectedTxtIdx*110 + 50),
         size: 24,
         align: 'left',
         color: 'white'
     };
     gMeme.txts.push(newTxt);
     gMeme.selectedTxtIdx = gMeme.txts.length - 1;
+    saveMemeToStorage();
     return newTxt;
 }
     if (gMeme.selectedTxtIdx === 3) {
@@ -39,7 +41,6 @@ function addLine(selectedTxt) {
 
 
 function clearLines(){
-
     if (gMeme.txts.length !== 0) {
         gMeme.SelectedTxtIdx = 0;
     }
@@ -53,13 +54,6 @@ function getUserMemes() {
     return userMemes;
 }
 
-function saveMemesToStorage() {
-    saveToStorage(User_DATA_KEY, gMemes)
-}
-
-function loadMemesFromStorage() {
-    return loadFromStorage(User_DATA_KEY);
-}
 
 
 function getImgs() {
@@ -71,3 +65,34 @@ function getImgs() {
 function loadImgsFromStorage() {
     return loadFromStorage(User_DATA_KEY_IMGS);
 }
+
+
+
+function saveMemeToStorage() {
+    saveToStorage(User_DATA_KEY, gMeme)
+}
+
+function loadMemeFromStorage() {
+    return loadFromStorage(User_DATA_KEY);
+}
+
+
+
+
+// function createMeme(selectedImgId,selectedTxtIdx,line, y, size) {
+    //     var meme = {
+//     selectedImgId: selectedImgId,
+//     selectedTxtIdx: selectedTxtIdx,
+//     txts: [
+//         {
+//             line: line,
+//             y: y,
+//             size: size,
+//             align: 'left',
+//             color: 'red'
+//         }
+//     ]
+//     }
+//     return meme;
+// }
+

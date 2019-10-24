@@ -107,18 +107,48 @@ body {
     padding-right: 4em;
 }
 
-/* .text-line {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-} */
+.update-txt-btn {
+  display:none;
+}
 
 .add-btn {
     width: 1em
 }
 
 
-/* Download & share */
+/* Gallery */
+
+.image-gallery {
+    background-color: bisque;
+    text-align: center;
+    font-size: 30px;
+}
+
+/* .image-gallery-span {
+    font-size: 2em;
+} */
+
+.img {
+    width: 150px;
+    height: 150px;
+}
+
+
+.galery {
+    background-color: lemonchiffon;
+    height: fit-content;
+    width:fit-content;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+  
+
+
+/* Download & share - TBD*/ 
 /* form {
     display: flex;
     justify-content: space-around;
@@ -149,36 +179,3 @@ body {
   }s */
 
 /* Download & share end */
-
-
-/* Gallery */
-
-
-.image-gallery {
-    background-color: bisque;
-    text-align: center;
-    font-size: 30px;
-}
-
-/* .image-gallery-span {
-    font-size: 2em;
-} */
-
-.img {
-    width: 150px;
-    height: 150px;
-}
-
-
-.galery {
-    background-color: lemonchiffon;
-    height: fit-content;
-    width:fit-content;
-    text-align: center;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-
-  

@@ -32,7 +32,7 @@
         </header>
 
         <section class="meme-editor">
-            <div class="canvas-container">
+            <div class="canvas-container" id="canvas" onclick="onCanvasClicked(event)">
                 <canvas id="my-canvas" width="500" height="500">
                     Update your browser to enjoy canvas!
                 </canvas>
@@ -42,8 +42,10 @@
 
                 <div class="text-line">
                     <table>
-                        <tr>
+                            <td class="update-btn"><button class="update-txt-btn" onclick="onUpdateTxt()">Update Text</button></td>
                             <td class="add-btn"><button onclick="onAddLine()" data-trans="add">Add</button></td>
+                        <tr>
+
                             <td><label for="text"></label></td>
                             <td class="lorem"><input type="text" class="input-text" id="text" class="text" name="text"
                                     onfocus="this.value=''" placeholder="Lorem ipsum dolor" /></td>
@@ -59,7 +61,7 @@
                     <button class="draw-rect-btn" onclick="onSwitchTxt()">⇆</button>
                     <button class="move-up-txt" onclick="onMoveUpTxt()">↑</button>
                     <button class="move-down-txt" onclick="onMoveDownTxt()">↓</button>
-
+                    
                     <!-- <input class="file-input btn" type="file" name="image" onchange="onImgInput(event)" /> -->
                     <!-- 
                     <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">

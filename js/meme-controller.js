@@ -3,6 +3,10 @@
 var gCanvas;
 var gCtx;
 var gImg;
+var gBoxMargin = 2;
+var gBoxWidth = 300;
+var gBoxHeight = 30;
+
 
 function init() {
     gCanvas = document.querySelector('#my-canvas');
@@ -25,17 +29,14 @@ function onImageSelect(e) {
     gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
     gImg = e;
     document.querySelector('.meme-editor').style.display = 'flex';
-    clearLines();
+    // clearLines();
     gCtx.drawImage(gImg, 0, 0);
-    //    console.log(gMeme.selectedTxtIdx);
-    //    if (gMeme.selectedTxtIdx !== 0) {
-    //     gMeme.selectedTxtIdx === 0
-    //    }
-    renderMeme();
+    if (gMeme.selectedTxtIdx >= 1) {
+    gMeme.txts.splice(gMeme.selectedTxtIdx, gMeme.selectedTxtIdx-1);
+    }
 }
 
 function renderMeme() {
-
     gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
     gCtx.drawImage(gImg, 0, 0);
     for (let txt of gMeme.txts) {
@@ -44,10 +45,38 @@ function renderMeme() {
     drawTxtBorder(10, gMeme.txts[gMeme.selectedTxtIdx].y)
 }
 
+function onCanvasClicked(ev) {
+
+    var clickedTxt = gMeme.txts.find(txt => {
+        return (
+            ev.clientX > 10 - gBoxMargin &&
+            ev.clientX < gBoxWidth + 10 - gBoxMargin &&
+            ev.clientY > (gMeme.selectedTxtIdx*110 + 50) + gBoxMargin &&
+            ev.clientY <  (gMeme.selectedTxtIdx*110 + 50) + gBoxHeight - gBoxMargin
+        )
+    })
+    if (clickedTxt) {
+        console.log('hi')
+        document.querySelector(".input-text").value = gMeme.txts[gMeme.selectedTxtIdx].line;
+        document.querySelector('.update-txt-btn').style.display = 'flex';
+        document.querySelector('.add-btn').style.display = 'none';
+        
+    }
+
+}
+
+function onUpdateTxt() {
+    var elUpdatedTxt = document.querySelector(".input-text").value 
+    gMeme.txts[gMeme.selectedTxtIdx].line = elUpdatedTxt;
+    renderMeme();
+    document.querySelector('.update-txt-btn').style.display = 'none';
+    document.querySelector('.add-btn').style.display = 'flex';
+    document.querySelector(".input-text").value = '';
+}
 
 function drawTxtBorder(startX, startY) {
     gCtx.strokeStyle = 'yellow';
-    gCtx.strokeRect(startX - 2, startY + 2, 300 + 2, -30 - 2);
+    gCtx.strokeRect(startX-gBoxMargin, startY + gBoxMargin, gBoxWidth - gBoxMargin, -gBoxHeight + gBoxMargin);
 }
 
 function drawTxt(txt, y, size, color) {
@@ -118,7 +147,7 @@ function onSetLang(lang) {
 
 // TBD translate input Lorem
 // function renderInputAtr() {
-    
+
 //     var elInput = document.querySelector('.input-text');
 //     var newInput = document.createElement('.lorem');
 //     newInput.innerHTML=`<input type="text" class="input-text" id="text" class="text" name="text"
