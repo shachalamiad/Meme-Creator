@@ -17,17 +17,17 @@
             <nav class="nav-bar-container">
                 <div class="logo">Meme Creator</div>
                 <ul class="nav-bar-links">
-                    <li class="link gallery"><a href="">Gallery</a></li>
-                    <li class="link">Memes</li>
-                    <li class="link">About</li>
+                    <li class="link gallery"><a href="" data-trans="gallery_trns">Gallery</a></li>
+                    <li class="link" data-trans="mem">Memes</li>
+                    <li class="link" data-trans="about">About</li>
                 </ul>
-                <!-- <div class="lang-selector">
-                <select class="lang-dropdown" onchange="onSetLang(this.value)">
-                    <option value="en">English</option>
-                    <option value="he">עברית</option>
-                </select>
-            </div> -->
-                <!-- </div> -->
+                <div class="lang-selector">
+                    <select class="lang-dropdown" onchange="onSetLang(this.value)">
+                        <option value="en">English</option>
+                        <option value="he">עברית</option>
+                    </select>
+                </div> 
+                </div>
             </nav>
         </header>
 
@@ -43,9 +43,9 @@
                 <div class="text-line">
                     <table>
                         <tr>
-                            <td class="add-btn"><button onclick="onAddLine()">Add</button></td>
+                            <td class="add-btn"><button onclick="onAddLine()" data-trans="add">Add</button></td>
                             <td><label for="text"></label></td>
-                            <td><input type="text" class="input-text" id="text" class="text" name="text"
+                            <td class="lorem"><input type="text" class="input-text" id="text" class="text" name="text"
                                     onfocus="this.value=''" placeholder="Lorem ipsum dolor" /></td>
                     </table>
                 </div>
@@ -61,7 +61,7 @@
                     <button class="move-down-txt" onclick="onMoveDownTxt()">↓</button>
 
                     <!-- <input class="file-input btn" type="file" name="image" onchange="onImgInput(event)" /> -->
-<!-- 
+                    <!-- 
                     <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
                         <input name="img" id="imgData" type="hidden" />
                         <button class="btn" type="submit">Publish</button>
@@ -76,10 +76,8 @@
 
     </main>
 
-    <footer class="image-gallery">
-        <!-- <span class="image-gallery-span"> -->
+    <footer class="image-gallery" >
         Please select an image
-        <!-- </span> -->
         <section class="galery">
         </section>
     </footer>
@@ -91,6 +89,7 @@
     <script src="js/galery-service.js"></script>
     <script src="js/meme-controller.js"></script>
     <script src="js/galery-controller.js"></script>
+    <script src="js/i18n-service.js"></script>
 </body>
 
 </html>

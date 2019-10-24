@@ -39,13 +39,11 @@ function addLine(selectedTxt) {
 
 
 function clearLines(){
-    console.log('hi');
-    console.log(gMeme.txts);
+
     if (gMeme.txts.length !== 0) {
         gMeme.SelectedTxtIdx = 0;
     }
-    console.log('hi');
-    console.log(gMeme.txts);
+
 }
 
 

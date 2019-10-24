@@ -49,6 +49,21 @@ body {
   }
 
 
+  .lang-dropdown {
+    cursor: pointer;
+    margin-right: 5px;
+    border-color: transparent;
+    background-color: transparent;
+    font-family: cursive;
+    font-weight: bold;
+    font-size: inherit;
+  }
+  
+  .lang-selector {
+    display: flex;
+    justify-content: space-around;
+  }
+
 /** Meme-Editor **/
 
 .meme-editor {

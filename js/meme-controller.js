@@ -23,19 +23,19 @@ function renderImgs() {
 
 function onImageSelect(e) {
     gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
-   gImg = e;
-   document.querySelector('.meme-editor').style.display = 'flex';
-   clearLines();
-   gCtx.drawImage(gImg, 0, 0);
-//    console.log(gMeme.selectedTxtIdx);
-//    if (gMeme.selectedTxtIdx !== 0) {
-//     gMeme.selectedTxtIdx === 0
-//    }
-   renderMeme();
+    gImg = e;
+    document.querySelector('.meme-editor').style.display = 'flex';
+    clearLines();
+    gCtx.drawImage(gImg, 0, 0);
+    //    console.log(gMeme.selectedTxtIdx);
+    //    if (gMeme.selectedTxtIdx !== 0) {
+    //     gMeme.selectedTxtIdx === 0
+    //    }
+    renderMeme();
 }
 
 function renderMeme() {
-    
+
     gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
     gCtx.drawImage(gImg, 0, 0);
     for (let txt of gMeme.txts) {
@@ -108,6 +108,27 @@ function onDecreaseTxtSize() {
 }
 
 
+function onSetLang(lang) {
+    setLang(lang);
+    doTrans();
+    if (lang = 'he') {
+        // renderInputAtr()
+    }
+}
+
+// TBD translate input Lorem
+// function renderInputAtr() {
+    
+//     var elInput = document.querySelector('.input-text');
+//     var newInput = document.createElement('.lorem');
+//     newInput.innerHTML=`<input type="text" class="input-text" id="text" class="text" name="text"
+//     onfocus="this.value=''" placeholder="לורם איפסום דולור" />`
+//     elInput.parentNode.replaceChild(newInput, elInput);
+// }
+
+
+
+
 //Download Image
 function downloadImg(elLink) {
     var imgContent = gCanvas.toDataURL('image/jpeg');
@@ -121,7 +142,7 @@ function onImgInput(ev) {
 function loadImageFromInput(ev, onImageReady) {
     document.querySelector('.share-container').innerHTML = ''
     var reader = new FileReader();
-    
+
     reader.onload = function (event) {
         var img = new Image();
         img.onload = onImageReady.bind(null, img)
