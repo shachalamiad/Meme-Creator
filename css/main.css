@@ -3,6 +3,64 @@
     box-sizing: border-box;
 }
 
+/* body */
+
+body {
+    margin: auto;
+}
+
+/* nav-bar */
+
+.nav-bar-container {
+    background-color: bisque;
+    display: flex;
+    justify-content: space-between;
+    height: 7em;
+}
+
+.logo {
+    padding: 2em;
+    color: black;
+    font-size: x-large;
+    font-family: fantasy;
+    width: 10em;
+  }
+
+.nav-bar-links {
+    width: 26em;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+.link {
+    padding: 2em;
+    color: unset;
+    font-family: cursive;
+    font-weight: bold;
+  }
+
+  a:visited {
+    color: black;
+  }
+  
+  a:hover, a:link {
+    color: black;
+  }
+
+
+/** Meme-Editor **/
+
+.meme-editor {
+    background-color: paleturquoise;
+    display:flex;
+    justify-content: space-between;
+
+}
+
+
+
+/* canvas */
 
 .canvas-container{
     height: fit-content;
@@ -12,7 +70,7 @@
 
 
 #my-canvas {
-    margin: 20px;
+    margin-right: 3em;
     border: 1px solid blue;
     background-color: linen;
 }
@@ -20,6 +78,32 @@
 .canvas-image {
     display: none;
 }
+
+/* Functions-container */
+
+.functions-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 7em;
+    padding-right: 4em;
+}
+
+
+
+/* Gallery */
+
+
+.image-gallery {
+    background-color: bisque;
+}
+
+
+.img {
+    width: 150px;
+    height: 150px;
+}
+
 
 .galery {
     background-color: lemonchiffon;
@@ -31,7 +115,5 @@
     margin-right: auto;
 }
 
-.img {
-    width: 150px;
-    height: 150px;
-}
+
+  

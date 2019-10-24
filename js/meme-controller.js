@@ -52,7 +52,7 @@ function drawTxt(txt, y, size, color) {
 
 
 function onAddTxt() {
-    var selectedTxt = document.querySelector(".text").value;
+    var selectedTxt = document.querySelector(".input-text").value;
     var newTxt = {
         line: selectedTxt,
         y: gCanvas.height / 2,
