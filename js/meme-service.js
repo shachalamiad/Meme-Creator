@@ -12,14 +12,7 @@ var gMeme = {
         {
             line: 'I never eat Falafel',
             y: 50,
-            size: 24,
-            align: 'left',
-            color: 'white'
-        },
-        {
-            line: 'But when I do I put a lot of Tahina',
-            y: 350,
-            size: 16,
+            size: 25,
             align: 'left',
             color: 'white'
         }
@@ -47,6 +40,9 @@ function addLine(selectedTxt) {
     }
 }
 
+function updateNewLine(selectedTxt) {
+    gMeme.txts[gMeme.selectedTxtIdx].line = selectedTxt;
+}
 
 function clearLines(){
     if (gMeme.txts.length !== 0) {

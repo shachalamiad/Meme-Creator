@@ -33,7 +33,6 @@ function onImageSelect(e) {
     if (gMeme.selectedTxtIdx >= 1) {
         gMeme.txts.splice(gMeme.selectedTxtIdx, gMeme.selectedTxtIdx - 1);
     }
-    renderInput();
     renderMeme();
 }
 
@@ -57,32 +56,20 @@ function onCanvasClicked(ev) {
     })
     if (clickedTxt) {
         console.log('hi')
-        document.querySelector(".input-text").value = gMeme.txts[gMeme.selectedTxtIdx].line;
-        document.querySelector('.update-txt-btn').style.display = 'flex';
-        document.querySelector('.add-btn').style.display = 'none';
 
     }
-
 }
 
-function onUpdateTxt() {
-    var elUpdatedTxt = document.querySelector(".input-text").value
-    gMeme.txts[gMeme.selectedTxtIdx].line = elUpdatedTxt;
-    renderMeme();
-    document.querySelector('.update-txt-btn').style.display = 'none';
-    document.querySelector('.add-btn').style.display = 'flex';
-    document.querySelector(".input-text").value = '';
-}
 
 function drawTxtBorder(startY) {
-    const margin = 25
-    const width = gCtx.canvas.width - margin * 2;
+    var margin = 25
+    var width = gCtx.canvas.width - margin * 2;
     gCtx.strokeStyle = 'yellow';
     gCtx.strokeRect(margin, startY + gBoxMargin, width, -gBoxHeight + gBoxMargin);
 }
 
 function drawTxt(txt, y, size, color) {
-    const x = gCtx.canvas.width/2;
+    var x = gCtx.canvas.width/2;
     gCtx.font = `${size}px Impact`;
     gCtx.fillStyle = `${color}`;
     gCtx.textAlign = 'center';
@@ -91,16 +78,17 @@ function drawTxt(txt, y, size, color) {
     gCtx.strokeText(txt, x, y);
 }
 
+
 function onInput() {
-    var selectedTxt = document.querySelector(".input-text").value;
-    gMeme.txts[gMeme.selectedTxtIdx].line = selectedTxt;
+    var elSelectedTxt = document.querySelector(".input-text").value;
+    var selectedTxt = elSelectedTxt;
+    updateNewLine(selectedTxt);
     renderMeme();
 }
 
 function onAddLine() {
-   
     addLine('new line');
-    renderInput();
+    // renderInput();
     renderMeme();
 }
 
@@ -134,6 +122,7 @@ function onMoveDownTxt() {
 
 function onIncreaseTxtSize() {
     gMeme.txts[gMeme.selectedTxtIdx].size += 5;
+    gBoxHeight += 5
     renderMeme();
 }
 
@@ -143,11 +132,8 @@ function onDecreaseTxtSize() {
         return
     };
     gMeme.txts[gMeme.selectedTxtIdx].size -= 5;
+    gBoxHeight -= 5
     renderMeme();
-}
-
-function renderInput () {
-    document.getElementById('text').value = gMeme.txts[gMeme.selectedTxtIdx].line
 }
 
 

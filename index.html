@@ -40,16 +40,8 @@
 
             <section class="functions-container">
                 <div class="text-line">
-                    <table>
-                        <td class="update-btn"><button class="update-txt-btn" onclick="onUpdateTxt()"
-                                data-trans="update">Update Text</button></td>
-                       
-                        <tr>
-
-                            <td><label for="text"></label></td>
-                            <td class="lorem"><input type="text" class="input-text" id="text" class="text" name="text"
-                                    oninput="onInput()" placeholder="Lorem ipsum dolor" /></td>
-                    </table>
+                <input type="text" class="input-text" id="text" class="text" name="text"
+                        oninput="onInput()" onClick="this.select();" placeholder="Lorem ipsum dolor" />
                 </div>
 
                 <div class="btns-container">
