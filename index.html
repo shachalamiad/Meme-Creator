@@ -43,16 +43,17 @@
                     <table>
                         <td class="update-btn"><button class="update-txt-btn" onclick="onUpdateTxt()"
                                 data-trans="update">Update Text</button></td>
-                        <td class="add-btn"><button onclick="onAddLine()" data-trans="add">Add</button></td>
+                       
                         <tr>
 
                             <td><label for="text"></label></td>
                             <td class="lorem"><input type="text" class="input-text" id="text" class="text" name="text"
-                                    onfocus="this.value=''" placeholder="Lorem ipsum dolor" /></td>
+                                    oninput="onInput()" placeholder="Lorem ipsum dolor" /></td>
                     </table>
                 </div>
 
                 <div class="btns-container">
+                    <button onclick="onAddLine()" data-trans="add">+</button>
                     <button class="delete-txt" onclick="onDeleteTxt()"><img src="imgs/trash.png"></button>
                     <button class="increase-txt" onclick="onIncreaseTxtSize()"><img
                             src="imgs/increase font - icon.png"></button>

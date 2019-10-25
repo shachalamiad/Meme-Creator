@@ -12,7 +12,6 @@ function init() {
     gCanvas = document.querySelector('#my-canvas');
     gCtx = gCanvas.getContext('2d');
     renderImgs();
-    
 }
 
 function renderImgs() {
@@ -34,6 +33,7 @@ function onImageSelect(e) {
     if (gMeme.selectedTxtIdx >= 1) {
         gMeme.txts.splice(gMeme.selectedTxtIdx, gMeme.selectedTxtIdx - 1);
     }
+    renderInput();
     renderMeme();
 }
 
@@ -87,11 +87,17 @@ function drawTxt(txt, y, size, color) {
     gCtx.strokeText(txt, 10, y);
 }
 
-function onAddLine() {
+function onInput() {
     var selectedTxt = document.querySelector(".input-text").value;
-    addLine(selectedTxt);
+    gMeme.txts[gMeme.selectedTxtIdx].line = selectedTxt;
     renderMeme();
-    document.querySelector(".input-text").value = ''
+}
+
+function onAddLine() {
+   
+    addLine('new line');
+    renderInput();
+    renderMeme();
 }
 
 function onDeleteTxt() {
@@ -107,7 +113,8 @@ function onDeleteTxt() {
 
 function onSwitchTxt() {
     gMeme.selectedTxtIdx = (gMeme.selectedTxtIdx + 1) % gMeme.txts.length
-    renderMeme()
+    renderInput();
+    renderMeme();
 }
 
 
@@ -134,6 +141,11 @@ function onDecreaseTxtSize() {
     gMeme.txts[gMeme.selectedTxtIdx].size -= 5;
     renderMeme();
 }
+
+function renderInput () {
+    document.getElementById('text').value = gMeme.txts[gMeme.selectedTxtIdx].line
+}
+
 
 
 function onSetLang(lang) {
