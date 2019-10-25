@@ -12,6 +12,7 @@ function init() {
     gCanvas = document.querySelector('#my-canvas');
     gCtx = gCanvas.getContext('2d');
     renderImgs();
+    
 }
 
 function renderImgs() {
@@ -29,10 +30,11 @@ function onImageSelect(e) {
     gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
     gImg = e;
     document.querySelector('.meme-editor').style.display = 'flex';
-    gCtx.drawImage(gImg, 0, 0);
+    
     if (gMeme.selectedTxtIdx >= 1) {
         gMeme.txts.splice(gMeme.selectedTxtIdx, gMeme.selectedTxtIdx - 1);
     }
+    renderMeme();
 }
 
 function renderMeme() {

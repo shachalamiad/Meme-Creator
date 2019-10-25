@@ -3,23 +3,32 @@
 const User_DATA_KEY = 'userMeme';
 var gNextId = 1;
 var gKeywords = { 'happy': 12, 'funny puk': 1 }
+
+
 var gMeme = {
     selectedImgId: 5,
     selectedTxtIdx: 0,
     txts: [
         {
             line: 'I never eat Falafel',
-            y: 0,
-            size: 0,
+            y: 50,
+            size: 24,
             align: 'left',
-            color: 'red'
+            color: 'white'
+        },
+        {
+            line: 'But when I do I put a lot of Tahina',
+            y: 350,
+            size: 16,
+            align: 'left',
+            color: 'white'
         }
     ]
 }
 
 saveMemeToStorage()
 
-function addLine(selectedTxt, gTxtChange) {
+function addLine(selectedTxt) {
     if (gMeme.selectedTxtIdx !== 3) {
     var newTxt = {
         line: selectedTxt,
