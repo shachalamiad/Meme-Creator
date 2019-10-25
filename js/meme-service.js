@@ -32,7 +32,7 @@ function addLine(selectedTxt) {
     if (gMeme.selectedTxtIdx !== 3) {
     var newTxt = {
         line: selectedTxt,
-        y: gMeme.txts[gMeme.selectedTxtIdx].y + (gMeme.selectedTxtIdx*110 + 50),
+        y: gMeme.txts[gMeme.selectedTxtIdx].y + 100,
         size: 24,
         align: 'left',
         color: 'white'

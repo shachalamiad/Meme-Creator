@@ -43,7 +43,7 @@ function renderMeme() {
     for (let txt of gMeme.txts) {
         drawTxt(txt.line, txt.y, txt.size, txt.color)
     }
-    drawTxtBorder(10, gMeme.txts[gMeme.selectedTxtIdx].y)
+    drawTxtBorder(gMeme.txts[gMeme.selectedTxtIdx].y)
 }
 
 function onCanvasClicked(ev) {
@@ -74,17 +74,21 @@ function onUpdateTxt() {
     document.querySelector(".input-text").value = '';
 }
 
-function drawTxtBorder(startX, startY) {
+function drawTxtBorder(startY) {
+    const margin = 25
+    const width = gCtx.canvas.width - margin * 2;
     gCtx.strokeStyle = 'yellow';
-    gCtx.strokeRect(startX - gBoxMargin, startY + gBoxMargin, gBoxWidth - gBoxMargin, -gBoxHeight + gBoxMargin);
+    gCtx.strokeRect(margin, startY + gBoxMargin, width, -gBoxHeight + gBoxMargin);
 }
 
 function drawTxt(txt, y, size, color) {
+    const x = gCtx.canvas.width/2;
     gCtx.font = `${size}px Impact`;
     gCtx.fillStyle = `${color}`;
+    gCtx.textAlign = 'center';
     gCtx.strokeStyle = 'black';
-    gCtx.fillText(txt, 10, y);
-    gCtx.strokeText(txt, 10, y);
+    gCtx.fillText(txt, x, y);
+    gCtx.strokeText(txt, x, y);
 }
 
 function onInput() {
