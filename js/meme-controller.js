@@ -29,7 +29,7 @@ function onImageSelect(e) {
     gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
     gImg = e;
     document.querySelector('.meme-editor').style.display = 'flex';
-    
+
     if (gMeme.selectedTxtIdx >= 1) {
         gMeme.txts.splice(gMeme.selectedTxtIdx, gMeme.selectedTxtIdx - 1);
     }
@@ -40,7 +40,7 @@ function renderMeme() {
     gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
     gCtx.drawImage(gImg, 0, 0);
     for (let txt of gMeme.txts) {
-        drawTxt(txt.line, txt.y, txt.size, txt.color)
+        drawTxt(txt.line, txt.y, txt.size, txt.color, txt.align)
     }
     drawTxtBorder(gMeme.txts[gMeme.selectedTxtIdx].y)
 }
@@ -55,11 +55,9 @@ function onCanvasClicked(ev) {
         )
     })
     if (clickedTxt) {
-        console.log('hi')
 
     }
 }
-
 
 function drawTxtBorder(startY) {
     var margin = 25
@@ -68,14 +66,21 @@ function drawTxtBorder(startY) {
     gCtx.strokeRect(margin, startY + gBoxMargin, width, -gBoxHeight + gBoxMargin);
 }
 
-function drawTxt(txt, y, size, color) {
-    var x = gCtx.canvas.width/2;
+function drawTxt(txt, y, size, color,align) {
+    var x = gCtx.canvas.width / 2;
     gCtx.font = `${size}px Impact`;
-    gCtx.fillStyle = `${color}`;
-    gCtx.textAlign = 'center';
-    gCtx.strokeStyle = 'black';
+    gCtx.fillStyle = color;
+    console.log(align)
+    gCtx.textAlign = align;
     gCtx.fillText(txt, x, y);
+    gCtx.strokeStyle = 'black';
     gCtx.strokeText(txt, x, y);
+}
+
+
+function onChangeAlign(align) {
+    gMeme.txts[gMeme.selectedTxtIdx].align = align;
+    renderMeme();
 }
 
 
@@ -88,7 +93,6 @@ function onInput() {
 
 function onAddLine() {
     addLine('new line');
-    // renderInput();
     renderMeme();
 }
 
@@ -104,8 +108,8 @@ function onDeleteTxt() {
 }
 
 function onSwitchTxt() {
+    console.log('hi')
     gMeme.selectedTxtIdx = (gMeme.selectedTxtIdx + 1) % gMeme.txts.length
-    renderInput();
     renderMeme();
 }
 
@@ -119,6 +123,7 @@ function onMoveDownTxt() {
     gMeme.txts[gMeme.selectedTxtIdx].y += 10;
     renderMeme();
 }
+
 
 function onIncreaseTxtSize() {
     gMeme.txts[gMeme.selectedTxtIdx].size += 5;
@@ -145,39 +150,3 @@ function onSetLang(lang) {
         // renderInputAtr()
     }
 }
-
-// TBD translate input Lorem
-// function renderInputAtr() {
-
-//     var elInput = document.querySelector('.input-text');
-//     var newInput = document.createElement('.lorem');
-//     newInput.innerHTML=`<input type="text" class="input-text" id="text" class="text" name="text"
-//     onfocus="this.value=''" placeholder="לורם איפסום דולור" />`
-//     elInput.parentNode.replaceChild(newInput, elInput);
-// }
-
-
-
-//To be implemented
-//Download Image
-function downloadImg(elLink) {
-    var imgContent = gCanvas.toDataURL('image/jpeg');
-    elLink.href = imgContent
-}
-
-// The next 2 functions handle IMAGE UPLOADING to img tag from file system: 
-function onImgInput(ev) {
-    loadImageFromInput(ev, renderCanvas)
-}
-function loadImageFromInput(ev, onImageReady) {
-    document.querySelector('.share-container').innerHTML = ''
-    var reader = new FileReader();
-
-    reader.onload = function (event) {
-        var img = new Image();
-        img.onload = onImageReady.bind(null, img)
-        img.src = event.target.result;
-    }
-    reader.readAsDataURL(ev.target.files[0]);
-}
-

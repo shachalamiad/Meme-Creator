@@ -13,7 +13,7 @@ var gMeme = {
             line: 'I never eat Falafel',
             y: 50,
             size: 25,
-            align: 'left',
+            align: 'center',
             color: 'white'
         }
     ]

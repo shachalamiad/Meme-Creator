@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/main.css">
 </head class="Meme-Editor">
 
-
 <body onload="init()">
     <main>
         <nav class="nav-bar-container">
@@ -38,26 +37,30 @@
                         onClick="this.select();" placeholder="Lorem ipsum dolor" />
                 </div>
 
-                <div class="btns-container">
+                <div class="upper-btns-line">
                     <button onclick="onAddLine()" data-trans="add"><img src="imgs/icons/add.png"></button>
                     <button class="delete-txt" onclick="onDeleteTxt()"><img src="imgs/icons/trash.png"></button>
-                    <button class="increase-txt" onclick="onIncreaseTxtSize()"><img
-                            src="imgs/icons/increase font - icon.png"></button>
+                </div>
+
+                <div class="middle-btns-line">
                     <button class="increase-txt" onclick="onDecreaseTxtSize()"><img
                             src="imgs/icons/decrease font - icon.png"></button>
-                    <button class="draw-rect-btn" onclick="onSwitchTxt()">⇆</button>
-                    <button class="move-up-txt" onclick="onMoveUpTxt()">↑</button>
-                    <button class="move-down-txt" onclick="onMoveDownTxt()">↓</button>
-                    <button class="align-to-left" onclick="onAlignLeft()"><img
+                    <button class="increase-txt" onclick="onIncreaseTxtSize()"><img
+                            src="imgs/icons/increase font - icon.png"></button>
+                    <button class="align-to-left" onclick="onChangeAlign('right')"><img
                             src="imgs/icons/align-to-left.png"></button>
-                    <button class="align-to-right" onclick="onAlignRight()"><img
-                            src="imgs/icons/align-to-right.png"></button>
-                    <button class="align-center" onclick="onAlignCenter()"><img
+                    <button class="align-center" onclick="onChangeAlign('center')"><img
                             src="imgs/icons/center-text-alignment.png"></button>
-                    <button class="align-change-color" onclick="onChangeColor()"><img
-                            src="imgs/icons/paint-board-and-brush.png"></button>
-                    <button class="text-stroke" onclick="onChangeColor()"><img
-                            src="imgs/icons/text stroke.png"></button>
+                    <button class="align-to-right" onclick="onChangeAlign('left')"><img
+                            src="imgs/icons/align-to-right.png"></button>
+                </div>
+                <div class="lower-btns-line">
+                <button class="draw-rect-btn" onclick="onSwitchTxt()">⇆</button>
+                <button class="move-up-txt" onclick="onMoveUpTxt()">↑</button>
+                <button class="move-down-txt" onclick="onMoveDownTxt()">↓</button>
+                <button class="text-stroke" onclick="onChangeColor()"><img src="imgs/icons/text stroke.png"></button>
+                <button class="align-change-color" onclick="onChangeColor()"><img
+                        src="imgs/icons/paint-board-and-brush.png"></button>
                 </div>
             </section>
         </section>
@@ -66,7 +69,6 @@
 
     </footer>
     <div class="image-gallery">
-        Please select an image
         <section class="galery">
         </section>
     </div>
@@ -80,20 +82,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-<!-- <input class="file-input btn" type="file" name="image" onchange="onImgInput(event)" /> -->
-<!-- 
-                    <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
-                        <input name="img" id="imgData" type="hidden" />
-                        <button class="btn" type="submit">Publish</button>
-                        <a href="#" class="btn" onclick="downloadImg(this)" download="my-img.jpg">Download as jpeg</a>
-                        <div class="share-container"></div>
-                    </form> -->
