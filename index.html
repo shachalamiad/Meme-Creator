@@ -6,46 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="css/main.css">
 </head class="Meme-Editor">
 
 
 <body onload="init()">
     <main>
-
-        <header>
-            <nav class="nav-bar-container">
-                <div class="logo">Meme Creator</div>
-                <ul class="nav-bar-links">
-                    <li class="link gallery"><a href="" data-trans="gallery_trns">Gallery</a></li>
-                    <li class="link" data-trans="mem">Memes</li>
-                    <li class="link" data-trans="about">About</li>
-                </ul>
-                <div class="lang-selector">
+        <nav class="nav-bar-container">
+            <img class="logo" src="imgs/logo/LOGO.png">
+            <ul class="nav-bar-links">
+                <li class="link gallery"><a href="gallery.html" data-trans="gallery_trns">Gallery</a></li>
+                <li class="link" data-trans="about">About</li>
+                <li class="lang-selector">
                     <select class="lang-dropdown" onchange="onSetLang(this.value)">
                         <option value="en">English</option>
                         <option value="he">עברית</option>
                     </select>
-                </div>
-                </div>
-            </nav>
-        </header>
+                </li>
+            </ul>
+        </nav>
 
         <section class="meme-editor">
             <div class="canvas-container" id="canvas" onclick="onCanvasClicked(event)">
                 <canvas id="my-canvas" width="500" height="500">
-                    Update your browser to enjoy canvas!
                 </canvas>
             </div>
 
             <section class="functions-container">
                 <div class="text-line">
-                <input type="text" class="input-text" id="text" class="text" name="text"
-                        oninput="onInput()" onClick="this.select();" placeholder="Lorem ipsum dolor" />
+                    <input type="text" class="input-text" id="text" class="text" name="text" oninput="onInput()"
+                        onClick="this.select();" placeholder="Lorem ipsum dolor" />
                 </div>
 
                 <div class="btns-container">
-                    <button onclick="onAddLine()" data-trans="add">+</button>
+                    <button onclick="onAddLine()" data-trans="add"><img src="imgs/icons/add.png"></button>
                     <button class="delete-txt" onclick="onDeleteTxt()"><img src="imgs/icons/trash.png"></button>
                     <button class="increase-txt" onclick="onIncreaseTxtSize()"><img
                             src="imgs/icons/increase font - icon.png"></button>
@@ -54,16 +48,28 @@
                     <button class="draw-rect-btn" onclick="onSwitchTxt()">⇆</button>
                     <button class="move-up-txt" onclick="onMoveUpTxt()">↑</button>
                     <button class="move-down-txt" onclick="onMoveDownTxt()">↓</button>
+                    <button class="align-to-left" onclick="onAlignLeft()"><img
+                            src="imgs/icons/align-to-left.png"></button>
+                    <button class="align-to-right" onclick="onAlignRight()"><img
+                            src="imgs/icons/align-to-right.png"></button>
+                    <button class="align-center" onclick="onAlignCenter()"><img
+                            src="imgs/icons/center-text-alignment.png"></button>
+                    <button class="align-change-color" onclick="onChangeColor()"><img
+                            src="imgs/icons/paint-board-and-brush.png"></button>
+                    <button class="text-stroke" onclick="onChangeColor()"><img
+                            src="imgs/icons/text stroke.png"></button>
                 </div>
             </section>
         </section>
     </main>
+    <footer> &copy; memegen 2019
 
-    <footer class="image-gallery">
+    </footer>
+    <div class="image-gallery">
         Please select an image
         <section class="galery">
         </section>
-    </footer>
+    </div>
 
     <script src="js/util-service.js"></script>
     <script src="js/meme-service.js"></script>

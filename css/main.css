@@ -3,6 +3,11 @@
     box-sizing: border-box;
 }
 
+html  {
+  font-size: 1.1875rem;
+}
+
+
 /* body */
 
 body {
@@ -12,25 +17,23 @@ body {
 /* nav-bar */
 
 .nav-bar-container {
-    background-color: bisque;
+    background-color: #00cc8a;
     display: flex;
     justify-content: space-between;
-    height: 7em;
+    /* text-align: center; */
+    height: 3em;
 }
 
 .logo {
-    padding: 2em;
-    color: black;
-    font-size: x-large;
-    font-family: fantasy;
-    width: 10em;
+  height: max-content;
+  align-self: center;
   }
 
 .nav-bar-links {
-    width: 26em;
     list-style: none;
     display: flex;
     justify-content: space-around;
+    align-self: center;
 }
 
 .link {
@@ -81,9 +84,8 @@ body {
     height: fit-content;
     width: fit-content;
     margin: auto;
-    padding: 1em 0 1em 1em;
-    padding-top: 1em;
-    padding-bottom: 1em;
+    padding: 1em 0 0 1em;
+
 }
 
 
@@ -113,26 +115,39 @@ width: 300px;
 font-size: 2.5em;
 }
 
-.update-txt-btn {
-  display:none;
+button {
+  border: none;
+  border-radius: 12px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: background .3s;
+  padding: 0;
+  height: 2.4rem;
+  width: 2.4rem;
 }
 
-.add-btn {
-    width: 1em
+button:hover {
+  background-color: #c7c7c7;
 }
 
+button img {
+  height: 60%;
+  margin: 20% 0;
+}
 
 /* Gallery */
 
 .image-gallery {
-    background-color: bisque;
+    background-color:  #00cc8a;
     text-align: center;
     font-size: 30px;
 }
 
-/* .image-gallery-span {
-    font-size: 2em;
-} */
+footer {
+  background-color:  #00cc8a;
+  widows: 2em;
+  text-align: center;
+}
 
 .img {
     width: 150px;
@@ -141,7 +156,7 @@ font-size: 2.5em;
 
 
 .galery {
-    background-color: lemonchiffon;
+    background-color:  #00cc8a;;
     height: fit-content;
     width:fit-content;
     text-align: center;
