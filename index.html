@@ -14,7 +14,7 @@
         <nav class="nav-bar-container">
             <img class="logo" src="imgs/logo/LOGO.png">
             <ul class="nav-bar-links">
-                <li class="link gallery"><a href="gallery.html" data-trans="gallery_trns">Gallery</a></li>
+                <!-- <li class="link gallery"><a href="" data-trans="gallery_trns">Gallery</a></li> -->
                 <li class="link" data-trans="about">About</li>
                 <li class="lang-selector">
                     <select class="lang-dropdown" onchange="onSetLang(this.value)">
@@ -55,14 +55,21 @@
                             src="imgs/icons/align-to-right.png"></button>
                 </div>
                 <div class="lower-btns-line">
-                <button class="draw-rect-btn" onclick="onSwitchTxt()">⇆</button>
-                <button class="move-up-txt" onclick="onMoveUpTxt()">↑</button>
-                <button class="move-down-txt" onclick="onMoveDownTxt()">↓</button>
-                <button title="stroke color"><label for="stroke-color"><img src="imgs/icons/text stroke.png"/></label></button>
-                <input type="color" id="stroke-color" class="color-input" onchange="onChangeStrokeColor(this.value)"/>
-                <button title="text color" ><label for="txt-color"><img src="imgs/icons/paint-board-and-brush.png"></label></button>
-                <input type="color" id="txt-color" class="color-input" onchange="onChangeColor(this.value)"/>
+                    <button class="draw-rect-btn" onclick="onSwitchTxt()">⇆</button>
+                    <button class="move-up-txt" onclick="onMoveUpTxt()">↑</button>
+                    <button class="move-down-txt" onclick="onMoveDownTxt()">↓</button>
+                    <button title="stroke color"><label for="stroke-color"><img
+                                src="imgs/icons/text stroke.png" /></label></button>
+                    <input type="color" id="stroke-color" class="color-input"
+                        onchange="onChangeStrokeColor(this.value)" />
+                    <button title="text color"><label for="txt-color"><img
+                                src="imgs/icons/paint-board-and-brush.png"></label></button>
+                    <input type="color" id="txt-color" class="color-input" onchange="onChangeColor(this.value)" />
                 </div>
+                <div>
+                    <button class="show-gallery-btn" onclick="onShowGallery()">Gallery</button>
+                </div>
+
             </section>
         </section>
     </main>
