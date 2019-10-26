@@ -14,7 +14,8 @@ var gMeme = {
             y: 50,
             size: 25,
             align: 'center',
-            color: 'white'
+            color: 'white',
+            stroke: 'black'
         }
     ]
 }

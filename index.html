@@ -58,9 +58,10 @@
                 <button class="draw-rect-btn" onclick="onSwitchTxt()">⇆</button>
                 <button class="move-up-txt" onclick="onMoveUpTxt()">↑</button>
                 <button class="move-down-txt" onclick="onMoveDownTxt()">↓</button>
-                <button class="text-stroke" onclick="onChangeColor()"><img src="imgs/icons/text stroke.png"></button>
-                <button class="align-change-color" onclick="onChangeColor()"><img
-                        src="imgs/icons/paint-board-and-brush.png"></button>
+                <button title="stroke color"><label for="stroke-color"><img src="imgs/icons/text stroke.png"/></label></button>
+                <input type="color" id="stroke-color" class="color-input" onchange="onChangeStrokeColor(this.value)"/>
+                <button title="text color" ><label for="txt-color"><img src="imgs/icons/paint-board-and-brush.png"></label></button>
+                <input type="color" id="txt-color" class="color-input" onchange="onChangeColor(this.value)"/>
                 </div>
             </section>
         </section>

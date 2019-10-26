@@ -145,6 +145,12 @@ button img {
   display: flex;
 }
 
+.color-input {
+  position: fixed;
+  top: 3000px;
+  bottom: 3000px;
+}
+
 
 /* Gallery */
 

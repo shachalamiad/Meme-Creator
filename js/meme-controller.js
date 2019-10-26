@@ -40,7 +40,7 @@ function renderMeme() {
     gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
     gCtx.drawImage(gImg, 0, 0);
     for (let txt of gMeme.txts) {
-        drawTxt(txt.line, txt.y, txt.size, txt.color, txt.align)
+        drawTxt(txt.line, txt.y, txt.size, txt.color, txt.align, txt.stroke)
     }
     drawTxtBorder(gMeme.txts[gMeme.selectedTxtIdx].y)
 }
@@ -66,23 +66,31 @@ function drawTxtBorder(startY) {
     gCtx.strokeRect(margin, startY + gBoxMargin, width, -gBoxHeight + gBoxMargin);
 }
 
-function drawTxt(txt, y, size, color,align) {
+function drawTxt(txt, y, size, color, align, stroke) {
     var x = gCtx.canvas.width / 2;
     gCtx.font = `${size}px Impact`;
     gCtx.fillStyle = color;
-    console.log(align)
     gCtx.textAlign = align;
     gCtx.fillText(txt, x, y);
-    gCtx.strokeStyle = 'black';
+    gCtx.strokeStyle = stroke;
     gCtx.strokeText(txt, x, y);
 }
-
 
 function onChangeAlign(align) {
     gMeme.txts[gMeme.selectedTxtIdx].align = align;
     renderMeme();
 }
 
+function onChangeStrokeColor(stroke) {
+    gMeme.txts[gMeme.selectedTxtIdx].stroke = stroke;
+    renderMeme();
+}
+
+
+function onChangeColor(color) {
+    gMeme.txts[gMeme.selectedTxtIdx].color = color;
+    renderMeme();
+}
 
 function onInput() {
     var elSelectedTxt = document.querySelector(".input-text").value;
