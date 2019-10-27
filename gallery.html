@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body onload="onLoadGallery()">
+
+    <div class="image-gallery">
+        <div class="text-line"> Search image
+            <input type="text" class="input-search" class="search" name="text"
+                onkeyup="onKeyUpSearch()" onClick="this.select();" placeholder="Search image.." />
+        </div>
+        <section class="galery">
+        </section>
+    </div>
+
+    <script src="js/util-service.js"></script>
+    <script src="js/galery-service.js"></script>
+    <script src="js/galery-controller.js"></script>
+    <script src="js/meme-service.js"></script>
+    <script src="js/meme-controller.js"></script>
+    <script src="js/i18n-service.js"></script>
+</body>
+
+</html>

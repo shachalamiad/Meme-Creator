@@ -58,13 +58,18 @@ function getUserMemes() {
 }
 
 
-function getImgs() {
-    var imgs = loadImgsFromStorage();
-    return imgs;
+// function getImgs() {
+//     var imgs = loadImgsFromStorage();
+//     return imgs;
+// }
+
+function getImg() {
+var selectedImg = loadImgFromStorage();
+return selectedImg;
 }
 
-function loadImgsFromStorage() {
-    return loadFromStorage(User_DATA_KEY_IMGS);
+function loadImgFromStorage() {
+    return loadFromStorage(User_IMG_KEY);
 }
 
 function saveMemeToStorage() {

@@ -1,7 +1,15 @@
 'use strict'
+const User_IMGS_KEY = 'Images';
+const User_IMG_KEY = 'Image';
+var gImg;
 
-const User_DATA_KEY_IMGS = 'Images';
+
+function onLoadGallery() {
+    renderImgs();
+}
+
 var gImgs = [
+    { id: 0, url: 'imgs/pict/X-Everywhere.jpg', keywords: 'beutiful' },
     { id: 1, url: 'imgs/pict/004.jpg', keywords: 'cute' },
     { id: 2, url: 'imgs/pict/8.jpg', keywords: 'happy' },
     { id: 3, url: 'imgs/pict/leo.jpg', keywords: 'cool' },
@@ -24,14 +32,46 @@ var gImgs = [
     { id: 20, url: 'imgs/pict/meme1.jpg', keywords: 'beutiful' },
     { id: 21, url: 'imgs/pict/One-Does-Not-Simply.jpg', keywords: 'beutiful' },
     { id: 22, url: 'imgs/pict/patrick.jpg', keywords: 'funny' },
-    { id: 23, url: 'imgs/pict/putin.jpg', keywords: 'beutiful' },
-    { id: 24, url: 'imgs/pict/X-Everywhere.jpg', keywords: 'beutiful' }
+    { id: 23, url: 'imgs/pict/putin.jpg', keywords: 'beutiful' }
+
 ];
 
-saveImgsToStorage()
 
-function saveImgsToStorage() {
-    saveToStorage(User_DATA_KEY_IMGS, gImgs)
+function renderImgs() {
+    var strHTMLs = gImgs.map(function (image, idx) {
+        return `
+        <img src="${image.url}" class="img" id="${image.id}"
+         alt="img" name="${image.keywords}" onmousedown="onImageSelect(this)" >
+         </li>
+         `
+    })
+    document.querySelector('.galery').innerHTML = strHTMLs.join('');
 }
 
 
+function onKeyUpSearch() {
+    console.log(gImgs[0].id)
+    var input = document.querySelector('.input-search');
+    var filter = input.value;
+    for (var i = 0; i < gImgs.length; i++) {
+        var txtValue = gImgs[i].keywords;
+        if (txtValue.indexOf(filter) > -1) {
+            document.getElementById(`${gImgs[i].id}`).style.display = "";
+        } else {
+            document.getElementById(`${gImgs[i].id}`).style.display = "none";
+        }
+    }
+}
+
+
+function onImageSelect(el) {
+    var imgId = el.id
+    var selectedImg = gImgs[imgId];
+    gImg = selectedImg
+    saveImgToStorage();
+    window.location = 'index.html';
+}
+
+function saveImgToStorage() {
+    saveToStorage(User_IMG_KEY, gImg)
+}
