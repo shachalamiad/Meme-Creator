@@ -7,7 +7,6 @@ var gBoxMargin = 2;
 var gBoxWidth = 300;
 var gBoxHeight = 30;
 
-
 function init() {
     gCanvas = document.querySelector('#my-canvas');
     gCtx = gCanvas.getContext('2d');
@@ -19,17 +18,19 @@ function renderImgs() {
     var strHTMLs = imgs.map(function (image, idx) {
         return `
         <img src="${image.url}" class="img" id="${idx}"
-         alt="img" name="${image.keywords}" onmousedown="onImageSelect(this)">
+         alt="img" name="${image.keywords}" onmousedown="onImageSelect(this)" >
+         </li>
          `
     })
     document.querySelector('.galery').innerHTML = strHTMLs.join('');
 }
 
+
 function onImageSelect(e) {
     gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
     gImg = e;
     document.querySelector('.meme-editor').style.display = 'flex';
-    document.querySelector('.galery').style.display = 'none';
+    document.querySelector('.image-gallery').style.display = 'none';
     document.querySelector('footer').style.display = 'block';
     if (gMeme.selectedTxtIdx >= 1) {
         gMeme.txts.splice(gMeme.selectedTxtIdx, gMeme.selectedTxtIdx - 1);
@@ -160,6 +161,21 @@ function onSetLang(lang) {
 
 function onShowGallery() {
     document.querySelector('.meme-editor').style.display = 'none';
-    document.querySelector('.galery').style.display = 'block';
+    document.querySelector('.image-gallery').style.display = 'block';
     document.querySelector('footer').style.display = 'none';
+}
+
+function onKeyUpSearch() {
+    var input = document.querySelector('.input-search');
+    var filter = input.value;
+    var x = document.getElementById(0);
+    for (var i = 0; i < gImgs.length; i++) {
+        var txtValue = gImgs[i].keywords;
+        if (txtValue.indexOf(filter) > -1) {
+            console.log('hi')
+            document.getElementById(`${i}`).style.display = "";
+        } else {
+            document.getElementById(`${i}`).style.display = "none";
+        }
+    }
 }

@@ -71,13 +71,19 @@ body {
 /** Meme-Editor **/
 
 .meme-editor {
+    /* max-width: 980px; */
+    margin: 0 auto;
     background-color: paleturquoise;
     display:flex;
     justify-content: space-between;
     display: none;
 }
-
-
+ /* @media (max-width: 980px) {
+    .meme-editor {
+      max-width: 740px; } }
+  @media (max-width: 740px) {
+    .meme-editor {
+      max-width: 100%; } } */
 
 /* canvas */
 
@@ -114,6 +120,12 @@ body {
 .input-text {
 width: 300px;
 font-size: 1.25em;
+}
+
+.input-search {
+width: 300px;
+font-size: 1em;
+background-color: #00cc8a;
 }
 
 button {
@@ -170,6 +182,12 @@ footer {
 .img {
     width: 150px;
     height: 150px;
+    border-radius: 25px;
+}
+
+.img:hover{
+  animation-name: bounce;
+  animation-duration: 1s;
 }
 
 

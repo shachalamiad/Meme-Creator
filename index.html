@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/animate.css">
 </head class="Meme-Editor">
 
 <body onload="init()">
@@ -33,7 +34,7 @@
 
             <section class="functions-container">
                 <div class="text-line">
-                    <input type="text" class="input-text" id="text" class="text" name="text" oninput="onInput()"
+                    <input type="text" class="input-text" id="text" class="text" name="text" oninput="onInput()" 
                         onClick="this.select();" placeholder="Lorem ipsum dolor" />
                 </div>
 
@@ -77,6 +78,10 @@
 
     </footer>
     <div class="image-gallery">
+            <div class="text-line"> Search image
+                    <input type="text" class="input-search" class="search" name="text" onchange="onSearchKeywords(this)" onkeyup="onKeyUpSearch()"
+                        onClick="this.select();" placeholder="Search image.." />
+                </div>
         <section class="galery">
         </section>
     </div>
